@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Заказ стихов{% endblock title %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+    <div class="row">
+      <div class="main_content">
+          <div class="inside_fon">
+             <div class="container">
+              <div class="row">
+                 <div class="container">
+                     <h2 style="text-align: center">ФОРМА ЗАКАЗА СТИХОВ</h2>
+                 </div>
+
+            <div class="feedback">
+
+                <form action="feedback2" method="POST">
+                {% csrf_token %}
+                <table class="table1">
+                {{ form.as_table }}
+                </table><br>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+                    <p class="under_btn">Нажимая на кнопку "Отправить",<br> вы даете согласие на обработку <br>своих персональных данных согласно <br><a href="{% url "politics" %}">политики конфиденциальности.</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+              </div>
+           </div>
+
+
+{% endblock content %}

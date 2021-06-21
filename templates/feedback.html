@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Контакты{% endblock title %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 d-flex justify-content-center">
+            <div class="adress">
+                <h4>Контактные данные:</h4> <br>
+                Пункт самовывоза колясок располагается по адресу: <br>
+                г.Гомель, ул.Жукова, 14. <br><br>
+                Телефоны: <br>
+                +375(29) 647-36-13, <br>
+                +375 (29) 735-18-67 <br>
+            </div>
+        </div>
+
+        <div class="col-lg-6 d-flex-column justify-content-center">
+            <div class="my_form_name">
+                ФОРМА ОБРАТНОЙ СВЯЗИ
+            </div>
+
+            <div class="my_form">
+                <form action="feedback" method="POST">
+                {% csrf_token %}
+                <table>
+                {{ form.as_table }}
+                </table>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center">
+    <div class="karamel_map">
+        <img src="{% static "images/karamel_map.png" %}" class="karamel_map">
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Стихи на заказ{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+      <div class="main_content">
+          <div class="inside_fon">
+             <div class="container">
+              <div class="row">
+                 <div class="container">
+                     <h2>Примеры поздравлений</h2>
+                     <div class="topics_intro">
+                  <p style="margin-left: 7px;">Дорогие друзья!
+                      В этом разделе собраны стихотворные поздравления, написанные в "Литстудии" на заказ. Мы не публикуем стихи клиентов, если они не дали нам на это свое согласие. Мы строго соблюдаем конфиденциальность полученной информации, поэтому предаем огласке только те заказы, которые пожелали обнародовать сами заказчики. По этой причине здесь опубликована малая часть стихов, написанных нами. Ознакомьтесь с приведенными примерами нашего творчества. Если вам понравятся наши работы, <a href="{% url "feedback2" %}">напишите</a> нам о своем праздничном поводе, и мы с удовольствием напишем стихи для вашего именинника, любимого, подруги или коллеги по работе.</p>
+                      </div>
+                 </div>
+               </div>
+
+                <div class="row" style="padding-bottom: 10px;">
+                    {% for topic in topics %}
+
+                        <div class="col-lg-4">
+
+                            <div class="topics">
+
+                            <img src="{{ topic.topic_photo.url }}" alt="{{ topic.description }}" class="topic_photo">
+
+                            <h4><a href="{% url 'poems' the_topic_slug=topic.topic_slug %}">{{ topic.topic_title }}</a></h4>
+
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+                </div>
+              </div>
+           </div>
+           </div>
+        </div>
+
+
+
+{% endblock content %}

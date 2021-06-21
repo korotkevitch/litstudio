@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ topic_title }}{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+      <div class="main_content">
+          <div class="inside_fon">
+             <div class="container" style="padding-bottom: 10px;">
+
+              <div class="row">
+                  <div class="container">
+                    <h3>{{ topic_title }}</h3>
+                    <div class="row">
+                       <div class="col-lg-6">
+                           <img src="{{ current_topic_photo.url }}" alt="{{ topic_title }}" class="poems_photo">
+                       </div>
+                        <div class="col-lg-6">
+                          <div class="text1">
+                           Посмотрите примеры выполненнных заказов на стихи и закажите прямо сейчас свое лучшее поздравление!
+                              <a href="{% url "feedback2" %}"><img src="{% static "images/zakaz.png" %}" class="knopka_zakaza"></a>
+                          </div>
+
+                          <div class="social"><p style="text-align: center; margin-top: 20px;">Покажите страницу друзьям!</p>
+<script type="text/javascript">(function() {
+  if (window.pluso)if (typeof window.pluso.start == "function") return;
+  if (window.ifpluso==undefined) { window.ifpluso = 1;
+    var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+    s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+    s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+    var h=d[g]('body')[0];
+    h.appendChild(s);
+  }})();</script>
+<div class="pluso" data-background="#ebebeb" data-options="medium,square,line,horizontal,counter,theme=04" data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir,email,print"></div>
+                        </div>
+
+                        </div>
+                    </div>
+
+
+                    </div>
+
+              </div>
+
+
+
+
+
+    {% for poem in all_topic_poems %}
+
+
+        <h4>{{ poem.stih_title }}</h4>
+
+        <div class="text2">
+        <p>{{ poem.task }}</p>
+        </div>
+
+        <pre><div class="stih_text">{{ poem.stih_text }}</div></pre>
+
+
+    {% endfor %}
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+{% endblock content %}
